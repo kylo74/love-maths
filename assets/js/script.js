@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event){
+        if (event.key === "Enter"){
+            checkAnswer();
+        }
+    })
+
     runGame("addition");
 
 });
@@ -69,6 +75,9 @@ function checkAnswer() {
  * directly from the dom, and returns the correct answer.
  */
 function calculateCorrectAnswer() {
+
+    document.getElementById("answer-box").value = ""
+    document.getElementById("answer-box").focus();
 
     let operand1 = parseInt(document.getElementById('operand1').innerText);
     let operand2 = parseInt(document.getElementById('operand2').innerText);
